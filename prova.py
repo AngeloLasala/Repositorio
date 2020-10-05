@@ -5,4 +5,6 @@ Created on Wed Sep 30 23:23:53 2020
 @author: Angelo
 """
 a={'a':0}
-print(a[1])
+t=(3.,5.)
+print(type(t[0]))
+print(type(a[0]))
