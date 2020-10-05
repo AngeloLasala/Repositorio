@@ -4,6 +4,5 @@ Created on Wed Sep 30 23:23:53 2020
 
 @author: Angelo
 """
-
-print('hello secondversion')
-print('altro')
+a={'a':0}
+print(a[1])
