@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 30 23:23:53 2020
-
-@author: Angelo
-"""
-
 import argparse  #modulo che permette di dare comandi sulla linea di comando
 if __name__=="__main__":
     parser=argparse.ArgumentParser()
