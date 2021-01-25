@@ -1,6 +1,7 @@
+""" Assigment 2
+"""
+import argparse
 import numpy as np
-from matplotlib import pyplot as plt
-from scipy import interpolate
 
 
 class VoltageData:
@@ -10,24 +11,24 @@ class VoltageData:
     def __init__(self, times, voltages):
         t = np.array(times, dtype=np.float64)
         v = np.array(voltages, dtype=np.float64)
-        self._data = np.column_stack((t,v))
+        self._data = np.column_stack((t, v))
 
     @property
     def voltages(self):
-        return self._data[:,1]
+        return self._data[:, 1]
 
     @property
     def timestamps(self):
-        return self._data[:,0]
+        return self._data[:, 0]
 
     def __len__(self):
         return len(self._data)
 
-    def __getitem__(self,index):  #index qualsiasi cosa, posso fare anche lo slice
+    def __getitem__(self, index):  #index qualsiasi cosa, posso fare anche lo slice
         return self._data[index]
 
     def __str__(self):
-        output_string= list()
+        output_string = list()
         for i, element in enumerate(self._data):
             output_string.append(f'{i:d}) t={element[0]} v={element[1]}')
         return '\n'.join(output_string)
@@ -35,8 +36,14 @@ class VoltageData:
 if __name__ == '__main__':
     """ Here we test the functionalities of our class. These are not proper
     UnitTest - which you will se in a future lesson."""
+    parser = argparse.ArgumentParser(description='Read and converte a time-voltage file text')
+    parser.add_argument('path', type=str, help='File path to read')
+    args = parser.parse_args()
+
+    print(args.path)
+
     # Load some data
-    t, v = np.loadtxt('C:/Users/lasal/Desktop/temp/Repository_CMFEFDA_20-21/sample_voltage_data.txt', unpack=True)
+    t, v = np.loadtxt(args.path, unpack=True)
     # Thest the constructor
     v_data = VoltageData(t, v)
     # Test len()
