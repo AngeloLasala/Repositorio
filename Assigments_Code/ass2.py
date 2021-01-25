@@ -29,7 +29,7 @@ class VoltageData:
     def __str__(self):
         output_string= list()
         for i, element in enumerate(self._data):
-            output_string.append(f't={element[0]} v={element[1]}')
+            output_string.append(f'{i:d}) t={element[0]} v={element[1]}')
         return '\n'.join(output_string)
 
 if __name__ == '__main__':
